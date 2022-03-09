@@ -61,14 +61,46 @@ class MainActivity : AppCompatActivity() {
             getText.text=""
              action= '+'
         }
+        val buttonMinus=findViewById<Button>(R.id.btn_min)
+        buttonMinus.setOnClickListener {
+            savefirstnum = getText.text.toString();
+            savetry= savefirstnum.toDouble()
+            getText.text=""
+            action= '-'
+        }
+        val buttonUmn=findViewById<Button>(R.id.btn_umn)
+        buttonUmn.setOnClickListener {
+            savefirstnum = getText.text.toString();
+            savetry= savefirstnum.toDouble()
+            getText.text=""
+            action= '*'
+        }
+        val buttonDiv=findViewById<Button>(R.id.btn_del)
+        buttonDiv.setOnClickListener {
+            savefirstnum = getText.text.toString();
+            savetry= savefirstnum.toDouble()
+            getText.text=""
+            action= '/'
+        }
         val buttonResult=findViewById<Button>(R.id.btn_ravno)
         buttonResult.setOnClickListener {
            val savefirstnum2 = getText.text.toString();
             val savetry1=savetry;
             val savetry2: Double = savefirstnum2.toDouble()
-            val actionthis=action.toDouble();
-            var actionfinal=savetry1 actionthis savetry2
-            getText.text="${actionfinal}";
+            val actionthis=action.toString();
+            var actionfinal: Double;
+            when (actionthis) {
+                "+" ->{ actionfinal=savetry1 + savetry2
+                getText.text="${actionfinal}";}
+                "-" ->{ actionfinal=savetry1 - savetry2
+                    getText.text="${actionfinal}";}
+                "*" ->{ actionfinal=savetry1 * savetry2
+                    getText.text="${actionfinal}";}
+                "/" ->{ actionfinal=savetry1 / savetry2
+                    getText.text="${actionfinal}";}
+                }
+
+
         }
     }
 
